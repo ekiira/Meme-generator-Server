@@ -6,12 +6,13 @@ const { expect } = chai;
 const request = require('supertest');
 const app = require('../app');
 
-it('Main page content', async () => {
+it('Main page content', (done) => {
   request(app)
     .get('/')
     .end((err, res) => {
       expect(res.text).to.equal('homepage');
     });
+  done();
 });
 
 // it('Get memes', async () => {
